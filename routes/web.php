@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\BarangKelontongController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +20,8 @@ Route::get('/', function () {
 
 
 Route ::get('/dashboard', [App\Http\Controllers\LandingPageController::class,'index']);
+
+
+Route::get('/barang_kelontong', [BarangKelontongController::class, 'index'])->name('barang_kelontong.index');
+Route::get('/create', [BarangKelontongController::class, 'create'])->name('barang_kelontong.create');
+Route::post('/barang_kelontong', [BarangKelontongController::class, 'store'])->name('barang_kelontong.store');
