@@ -34,12 +34,13 @@
                 <input type="date" class="form-control" id="tanggal_kadaluarsa" name="tanggal_kadaluarsa" required>
             </div>
             <div class="mb-3">
-                <label for="tersedia" class="form-label">Tersedia</label>
+                <label for="status" class="form-label">Status</label>
                 <select class="form-control" id="tersedia" name="tersedia" required>
                     <option value="1">Tersedia</option>
                     <option value="0">Tidak Tersedia</option>
                 </select>
             </div>
+            
             <button type="submit" class="btn btn-primary">Tambah Barang</button>
         </form>
     </div>

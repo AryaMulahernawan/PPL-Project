@@ -10,6 +10,18 @@
 <body>
     <div class="container mt-5">
         <h1 class="text-center">Daftar Barang Kelontong</h1>
+
+        <!-- Tombol Tambah Barang -->
+        <div class="mb-3">
+            <a href="{{ route('barang_kelontong.create') }}" class="btn btn-success">Tambah Barang</a>
+        </div>
+
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -18,7 +30,8 @@
                     <th>Stok</th>
                     <th>Kategori</th>
                     <th>Tanggal Kadaluarsa</th>
-                    <th>Tersedia</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,6 +43,14 @@
                     <td>{{ $item->kategori }}</td>
                     <td>{{ $item->tanggal_kadaluarsa }}</td>
                     <td>{{ $item->tersedia ? 'Tersedia' : 'Tidak Tersedia' }}</td>
+                    <td>
+                        <a href="{{ route('barang_kelontong.edit', $item->id) }}" class="btn btn-warning">Edit</a>
+                        <form action="{{ route('barang_kelontong.destroy', $item->id) }}" method="POST" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus barang ini?')">Hapus</button>
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
