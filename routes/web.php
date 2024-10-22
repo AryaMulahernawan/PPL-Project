@@ -30,3 +30,4 @@ Route::post('/barang_kelontong', [BarangKelontongController::class, 'store'])->n
 Route::get('/barang_kelontong/{id}/edit', [BarangKelontongController::class, 'edit'])->name('barang_kelontong.edit');
 Route::put('/barang_kelontong/{id}', [BarangKelontongController::class, 'update'])->name('barang_kelontong.update');
 Route::delete('/barang_kelontong/{id}', [BarangKelontongController::class, 'destroy'])->name('barang_kelontong.destroy');
+Route::get('/barang/{id}', [BarangKelontongController::class, 'show'])->name('barang.show');

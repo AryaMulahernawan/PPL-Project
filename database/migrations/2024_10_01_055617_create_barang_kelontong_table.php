@@ -16,9 +16,9 @@ class CreateBarangKelontongTable extends Migration
         Schema::create('barang_kelontong', function (Blueprint $table) {
             $table->id();
             $table->string('nama_barang'); // Tipe data string
-            $table->integer('stok'); // Tipe data number (integer)
+            $table->integer('stok'); // Tipe data integer
             $table->enum('kategori', ['makanan', 'minuman', 'kebutuhan_rumah_tangga', 'lainnya']); // Tipe data enum
-            $table->date('tanggal_kadaluarsa'); // Tipe data date
+            $table->date('tanggal_masuk'); // Tipe data date
             $table->boolean('tersedia'); // Tipe data boolean
             $table->timestamps();
         });

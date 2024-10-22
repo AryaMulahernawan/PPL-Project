@@ -29,7 +29,7 @@
                     <th>Nama Barang</th>
                     <th>Stok</th>
                     <th>Kategori</th>
-                    <th>Tanggal Kadaluarsa</th>
+                    <th>Tanggal Masuk</th>
                     <th>Status</th>
                     <th>Aksi</th>
                 </tr>
@@ -41,7 +41,7 @@
                     <td>{{ $item->nama_barang }}</td>
                     <td>{{ $item->stok }}</td>
                     <td>{{ $item->kategori }}</td>
-                    <td>{{ $item->tanggal_kadaluarsa }}</td>
+                    <td>{{ $item->tanggal_masuk }}</td>
                     <td>{{ $item->tersedia ? 'Tersedia' : 'Tidak Tersedia' }}</td>
                     <td>
                         <a href="{{ route('barang_kelontong.edit', $item->id) }}" class="btn btn-warning">Edit</a>

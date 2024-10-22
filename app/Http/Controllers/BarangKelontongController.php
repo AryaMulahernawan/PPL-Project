@@ -28,7 +28,7 @@ class BarangKelontongController extends Controller
         'nama_barang' => 'required|string|max:255',
         'stok' => 'required|integer',
         'kategori' => 'required|in:makanan,minuman,kebutuhan_rumah_tangga,lainnya',
-        'tanggal_kadaluarsa' => 'required|date',
+        'tanggal_masuk' => 'required|date',
         'tersedia' => 'required|boolean', // Memastikan validasi untuk tersedia
     ]);
 
@@ -37,7 +37,7 @@ class BarangKelontongController extends Controller
         'nama_barang' => $request->nama_barang,
         'stok' => $request->stok,
         'kategori' => $request->kategori,
-        'tanggal_kadaluarsa' => $request->tanggal_kadaluarsa,
+        'tanggal_masuk' => $request->tanggal_masuk,
         'tersedia' => $request->tersedia, // Pastikan ini benar
     ]);
 
@@ -62,7 +62,7 @@ class BarangKelontongController extends Controller
         'nama_barang' => 'required|string|max:255',
         'stok' => 'required|integer',
         'kategori' => 'required|in:makanan,minuman,kebutuhan_rumah_tangga,lainnya',
-        'tanggal_kadaluarsa' => 'required|date',
+        'tanggal_masuk' => 'required|date',
         'tersedia' => 'required|boolean',
     ]);
 
@@ -72,7 +72,7 @@ class BarangKelontongController extends Controller
         'nama_barang' => $request->nama_barang,
         'stok' => $request->stok,
         'kategori' => $request->kategori,
-        'tanggal_kadaluarsa' => $request->tanggal_kadaluarsa,
+        'tanggal_masuk' => $request->tanggal_masuk,
         'tersedia' => $request->tersedia,
     ]);
 
@@ -90,4 +90,9 @@ class BarangKelontongController extends Controller
         // Redirect ke halaman index dengan pesan sukses
         return redirect()->route('barang_kelontong.index')->with('success', 'Barang berhasil dihapus!');
     }
+    public function show($id)
+{
+    $barang = BarangKelontong::with('transaksis')->findOrFail($id);
+    return view('barang.show', compact('barang'));
+}
 }

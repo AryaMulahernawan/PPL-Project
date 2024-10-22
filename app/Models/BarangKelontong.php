@@ -17,14 +17,20 @@ class BarangKelontong extends Model
         'nama_barang',
         'stok',
         'kategori',
-        'tanggal_kadaluarsa',
+        'tanggal_masuk',
         'tersedia',
     ];
 
     // Tipe data dari kolom yang ada
     protected $casts = [
         'stok' => 'integer',
-        'tanggal_kadaluarsa' => 'date',
+        'tanggal_masuk' => 'date',
         'tersedia' => 'boolean',
     ];
+
+    // Relasi Many-to-Many dengan model Transaksi
+    public function transaksis()
+    {
+        return $this->belongsToMany(Transaksi::class, 'barang_kelontong_transaksi', 'barang_kelontong_id', 'transaksi_id');
+    }
 }

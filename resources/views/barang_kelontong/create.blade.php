@@ -30,8 +30,8 @@
                 </select>
             </div>
             <div class="mb-3">
-                <label for="tanggal_kadaluarsa" class="form-label">Tanggal Kadaluarsa</label>
-                <input type="date" class="form-control" id="tanggal_kadaluarsa" name="tanggal_kadaluarsa" required>
+                <label for="tanggal_masuk" class="form-label">Tanggal Masuk</label>
+                <input type="date" class="form-control" id="tanggal_masuk" name="tanggal_masuk" required>
             </div>
             <div class="mb-3">
                 <label for="status" class="form-label">Status</label>
